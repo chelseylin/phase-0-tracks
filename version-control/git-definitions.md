@@ -8,7 +8,7 @@ Version control is keeping different versions and updates of a program organized
 
 * What is a branch and why would you use one?
 
-A branch is like a separated copy of a program that allows us to work on it without affecting the other branches. It is useful because it allows multiple people working on different features of same project at the same time and also easier to manage what is updated.
+A branch is like a separated copy of a program that allows us to work on it without affecting the other branches. It is useful because it allows multiple people working on different features of same project at the same time and also easier to manage what is updated~
 
 * What is a commit? What makes a good commit message?
 
