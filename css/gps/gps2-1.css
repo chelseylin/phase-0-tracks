@@ -1,0 +1,35 @@
+header {
+  background: #aaa;
+  font-family: "Helvetica", sans-serif;
+}
+
+h2 {
+  color: #444;
+}
+
+a:hover {
+  color: #90a5f3;
+  font-style: italic;
+}
+
+article {
+  border: 2px dotted #000;
+  margin:5px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
+section.column-1 {
+  width: 49%;
+  float: right;
+}
+
+section.column-2 {
+  width: 49%;
+  float: left;
+}
+
+footer {
+  clear:both;
+  background: #aaa;
+}
