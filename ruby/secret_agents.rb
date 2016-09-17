@@ -21,5 +21,26 @@ def encrypt(str)
   return result
 end
 
-puts "#{encrypt("abc xyz")}"
 #decrypt method
+#create an empty result string
+#use for loop to go through every char in string
+# => check for space
+# => locate the char's index in codex
+# => attach previous char to result
+def decrypt(str)
+  decoder_ring = "abcdefghijklmnopqrstuvwxyz"
+  result = ""
+  for i in 0...str.length
+    char = str[i]
+    if char == " "
+      result += " "
+    else
+      result += decoder_ring[decoder_ring.index(char)-1]
+    end
+  end
+
+  return result
+end
+
+puts "#{decrypt("bcd")}"
+puts "#{decrypt("afe")}"
