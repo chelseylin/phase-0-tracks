@@ -1,0 +1,9 @@
+- Decide the destination floor according to command given.
+- Check if current floor equals destination floor
+  - If yes, no action need to be taken.
+  - If no, decide if current floor is lower/higher than destination floor.
+    - If lower, push 'up' button.
+    - If higher, push 'down' button.
+  - Wait till elevator arrives.
+  - Enter elevator and push button for destination floor.
+  - Wait till destination floor is reached, exit the elevator.
