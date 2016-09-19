@@ -39,7 +39,7 @@ elsif !age_test
   if !garlic_test && !insurance_test
     result = "Almost certainly a vampire."
   elsif !garlic_test || !insurance_test
-    result = "Probably not a vampire"
+    result = "Probably a vampire"
   end
 else
   if garlic_test || insurance_test
