@@ -7,3 +7,14 @@
   - Wait till elevator arrives.
   - Enter elevator and push button for destination floor.
   - Wait till destination floor is reached, exit the elevator.
+
+  # Algorithm: Cooking Rice
+  - Decided how many people going to eat rice.
+  - Take out rice bag from cabinet where it is stored.
+  - Take out correct amount of rice according to # of people.
+  - Put rice in rice-cooker's pot and check if rice is clean.
+    - If rice is clean, continue.
+    - If rice is not clean, rinse and check again.
+  - Put correct amount of water according to the marker on pot and amount of rice in there.
+  - Push button according to whether it is brown/white rice.
+  - Wait till rice cooker beeps.
