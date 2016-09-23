@@ -1,3 +1,5 @@
+name_table = {}
+
 while true
   #Input Real Name
   puts "Please Enter the Name You Wish to Change:"
@@ -7,7 +9,7 @@ while true
   if real_name == 'quit'
     break
   end
-  
+
   #Create Fake Name
   # => Swap First and Last Name
   word_array = real_name.split(' ')
@@ -40,4 +42,12 @@ while true
   fake_name = char_array.join('')
   fake_name = fake_name.split(' ').map(&:capitalize).join(' ')
   puts fake_name
+
+  #Save Name in Data Structure
+  name_table[real_name] = fake_name
+end
+
+#Print out Name Table
+name_table.each do |key, value|
+  puts "#{key} is also known as #{value}."
 end
