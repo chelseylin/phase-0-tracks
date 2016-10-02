@@ -9,12 +9,38 @@ class Santa
   end
 
   #---Instance Methods---
-  def speak()
+  def speak
     puts "Ho, ho, ho! Haaaappy holidays!"
   end
 
   def eat_milk_and_cookies(cookie_type)
     puts "That was a good #{cookie_type}!"
+  end
+
+  def celebrate_birthday
+    @age += 1
+  end
+
+  def get_mad_at(reindeer)
+    length = @reindeer_ranking.length
+    @reindeer_ranking.delete(reindeer)
+    if @reindeer_ranking.length < length
+      @reindeer_ranking << reindeer
+    end
+  end
+
+  #---Setter---
+  def set_gender(new_gender)
+    @gender = new_gender
+  end
+
+  #---Getter---
+  def age
+    @age
+  end
+
+  def ethnicity
+    @ethnicity
   end
 
 end
@@ -40,3 +66,13 @@ end
 #   santas << Santa.new(example_genders[i], example_ethnicities[i])
 # end
 # p santas
+
+santa_test = Santa.new("female", "asian")
+puts santa_test.age
+santa_test.celebrate_birthday
+puts santa_test.age
+puts santa_test.ethnicity
+santa_test.set_gender("male")
+p santa_test
+santa_test.get_mad_at("Dancer")
+p santa_test
