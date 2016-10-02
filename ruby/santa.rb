@@ -1,4 +1,7 @@
 class Santa
+  attr_reader :age, :ethnicity
+  attr_accessor :gender
+
   #---Initialize Method---
   def initialize(gender, ethnicity)
     puts "Initializing Santa instance..."
@@ -27,20 +30,6 @@ class Santa
     if @reindeer_ranking.length < length
       @reindeer_ranking << reindeer
     end
-  end
-
-  #---Setter---
-  def set_gender(new_gender)
-    @gender = new_gender
-  end
-
-  #---Getter---
-  def age
-    @age
-  end
-
-  def ethnicity
-    @ethnicity
   end
 
 end
@@ -72,7 +61,7 @@ puts santa_test.age
 santa_test.celebrate_birthday
 puts santa_test.age
 puts santa_test.ethnicity
-santa_test.set_gender("male")
+santa_test.gender = "male"
 p santa_test
 santa_test.get_mad_at("Dancer")
 p santa_test
