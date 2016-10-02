@@ -1,6 +1,6 @@
 class Santa
-  attr_reader :age, :ethnicity
-  attr_accessor :gender
+  attr_reader :age, :ethnicity, :gender
+  attr_accessor :gender, :age
 
   #---Initialize Method---
   def initialize(gender, ethnicity)
@@ -56,12 +56,21 @@ end
 # end
 # p santas
 
-santa_test = Santa.new("female", "asian")
-puts santa_test.age
-santa_test.celebrate_birthday
-puts santa_test.age
-puts santa_test.ethnicity
-santa_test.gender = "male"
-p santa_test
-santa_test.get_mad_at("Dancer")
-p santa_test
+# santa_test = Santa.new("female", "asian")
+# puts santa_test.age
+# santa_test.celebrate_birthday
+# puts santa_test.age
+# puts santa_test.ethnicity
+# santa_test.gender = "male"
+# p santa_test
+# santa_test.get_mad_at("Dancer")
+
+sample_gender = ["female", "male", "unknown"]
+sample_ethnicity = ["asian", "black", "white", "latino", "prefer not to say"]
+
+test_number = 100
+test_number.times do
+  santa = Santa.new(sample_gender.sample, sample_ethnicity.sample)
+  santa.age = rand(141)
+  puts santa.gender, santa.ethnicity, santa.age
+end
