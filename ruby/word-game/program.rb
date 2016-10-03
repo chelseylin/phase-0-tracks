@@ -23,9 +23,11 @@ class Hangman
   end
 
   def display
+    puts "----------------------------------------"
     puts "Current Process: " + @current.join(" ")
     puts "Letters Available: " + @letter_available
     puts "Guesses Left: " + @guess_num.to_s
+    puts "----------------------------------------"
   end
 
   def turn(letter)
@@ -51,3 +53,32 @@ class Hangman
     end
   end
 end
+
+#---User Interface---
+puts "Welcome to the Hangman Game!"
+puts "Please enter the word you would like the player to guess:"
+word = gets.chomp
+game = Hangman.new(word)
+
+puts "Now Let's Begin Our Game!"
+game.display
+
+while !(game.if_win || game.guess_num == 0)
+  puts "Please enter a letter:"
+  letter = gets.chomp
+  if game.turn(letter)
+    puts "CORRECT!"
+  else
+    puts "WRONG!"
+  end
+  game.display
+  game.check
+end
+
+puts "The correct answer is: #{word}"
+if game.if_win
+  puts "You have WON!"
+else
+  puts "You have LOST!"
+end
+
