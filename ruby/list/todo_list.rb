@@ -7,6 +7,10 @@ class TodoList
     @items
   end
 
+  def get_item(index)
+    @items[index]
+  end
+
   def add_item(task)
     @items << task
   end
