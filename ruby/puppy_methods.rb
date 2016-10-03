@@ -26,9 +26,37 @@ class Puppy
 
 end
 
-test = Puppy.new
-test.fetch("ball")
-test.speak(5)
-test.roll_over
-puts test.dog_years(14)
-test.chasing_tail
+# test = Puppy.new
+# test.fetch("ball")
+# test.speak(5)
+# test.roll_over
+# puts test.dog_years(14)
+# test.chasing_tail
+
+class Kitty
+  def initialize
+    puts "Initializing kitty instance..."
+  end
+
+  def speak(n)
+    n.times {puts "Meow..."}
+  end
+
+  def play(toy)
+    puts "Playing #{toy}..."
+  end
+
+  def eat(food)
+    puts "Eating #{food}..."
+  end
+
+end
+
+kitties = []
+num_of_instances = 50
+num_of_instances.times {kitties << Kitty.new}
+
+kitties.each do |kitty|
+  kitty.play("yarn")
+  kitty.eat("fish")
+end
