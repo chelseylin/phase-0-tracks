@@ -23,3 +23,23 @@ else {
 // console.log(horseList);
 // console.log(horseList['Abby']);
 // console.log(horseList.Ed);
+
+// Class and Object
+
+function Car(brand, milage, insuranceStatus) {
+  this.brand = brand;
+  this.milage = milage;
+  this.insurance = insuranceStatus;
+
+  this.printInfo = function() {
+    console.log("This car is a " + this.brand + ".");
+    console.log("It has run " + this.milage + " miles.");
+    console.log("Insurance coverage: " + this.insurance + ".");
+  };
+
+  console.log("Finished generating new car!");
+}
+
+// Driver Code
+var testCar = new Car('Toyota', 3000, true);
+testCar.printInfo();
