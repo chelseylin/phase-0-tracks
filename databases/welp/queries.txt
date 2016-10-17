@@ -1,0 +1,20 @@
+1) Joining Multiple Table:
+
+sqlite> SELECT * FROM reviews, businesses, users WHERE reviews.business_id=businesses.id AND reviews.user_id=users.id;
+1|5|great food!|1|1|1|Grundy Hollow Wedding Chapel|1|Bradford|Pitt
+2|5|good|1|3|1|Grundy Hollow Wedding Chapel|3|Angela|Jolie
+3|4|service was soso|3|3|3|The Beagle Nightclub|3|Angela|Jolie
+
+2) Selecting specific columns for display
+
+sqlite> SELECT businesses.name, users.first_name, users.last_name, reviews.stars, reviews.comment FROM reviews INNER JOIN businesses ON reviews.business_id=businesses.id INNER JOIN users ON reviews.user_id=users.id;
+Grundy Hollow Wedding Chapel|Bradford|Pitt|5|great food!
+Grundy Hollow Wedding Chapel|Angela|Jolie|5|good
+The Beagle Nightclub|Angela|Jolie|4|service was soso
+sqlite> 
+
+3) View data from all tables for particular business
+
+sqlite> SELECT businesses.id, businesses.name, users.first_name, users.last_name, reviews.stars, reviews.comment FROM reviews LEFT JOIN businesses ON reviews.business_id=businesses.id INNER JOIN users ON reviews.user_id=users.id WHERE businesses.id=1;
+1|Grundy Hollow Wedding Chapel|Bradford|Pitt|5|great food!
+1|Grundy Hollow Wedding Chapel|Angela|Jolie|5|good
