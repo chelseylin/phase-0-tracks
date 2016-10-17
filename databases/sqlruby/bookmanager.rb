@@ -44,15 +44,32 @@ end
 #Display All Books:
 def display_books(db)
   books = db.execute("SELECT * FROM books")
-  p books
+  counter = 1
+  books.each do |row|
+    progress = (row[3].to_f/row[2].to_f).round(4)
+    puts "----------------------------------------"
+    puts "Book #{counter}:"
+    puts "TITLE: #{row[1]}"
+    puts "TOTAL PAGES: #{row[2]}"
+    puts "CURRENT PAGE: #{row[3]}"
+    puts "PROGRESS: #{progress*100}%"
+    counter += 1
+  end
+  puts "----------------------------------------"
+end
+
+#Delete Book:
+def delete_book(db, title)
+  db.execute("DELETE FROM books WHERE name=?", [title])
 end
 #---------------------------------------------------------
 #TEST DRIVER CODE
 new_book(db, 'Jane Eyer', 563)
+new_book(db, 'Twilight', 789)
+new_book(db, 'Twilight3', 700)
+update_page(db, 'Jane Eyer', 563)
+delete_book(db, 'Twilight')
 display_books(db)
-update_page(db, 'Jane Eyer', 200)
-display_books(db)
-
 
 
 
