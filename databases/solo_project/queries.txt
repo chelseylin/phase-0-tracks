@@ -1,0 +1,43 @@
+1) SELECT * FROM students;
+——————————————————————————————————————————
+1|Ken Brown|1|true
+2|Abriel Candy|1|true
+3|Parry Washington|2|true
+4|Jinx Jackson|2|true
+5|Vladimir Prince|2|false
+6|Talon League|3|false
+——————————————————————————————————————————
+
+2) UPDATE students SET tuition_paid="true" WHERE name="Vladimir Prince";
+
+3) SELECT * FROM students, teachers WHERE students.teacher_id=teachers.id;
+——————————————————————————————————————————
+1|Ken Brown|1|true|1|Mike Johnson
+2|Abriel Candy|1|true|1|Mike Johnson
+3|Parry Washington|2|true|2|Mary Watson
+4|Jinx Jackson|2|true|2|Mary Watson
+5|Vladimir Prince|2|true|2|Mary Watson
+6|Talon League|3|false|3|Bella Smith
+——————————————————————————————————————————
+
+4) SELECT students.id, students.name, teachers.name FROM students JOIN teachers ON students.teacher_id=teachers.id;
+——————————————————————————————————————————
+1|Ken Brown|Mike Johnson
+2|Abriel Candy|Mike Johnson
+3|Parry Washington|Mary Watson
+4|Jinx Jackson|Mary Watson
+5|Vladimir Prince|Mary Watson
+6|Talon League|Bella Smith
+——————————————————————————————————————————
+
+5) DELETE FROM students WHERE tuition_paid="false";
+
+6) SELECT teachers.id, teachers.name, students.id, students.name FROM teachers LEFT JOIN students ON students.teacher_id=teachers.id;
+——————————————————————————————————————————
+1|Mike Johnson|2|Abriel Candy
+1|Mike Johnson|1|Ken Brown
+2|Mary Watson|4|Jinx Jackson
+2|Mary Watson|3|Parry Washington
+2|Mary Watson|5|Vladimir Prince
+3|Bella Smith||
+——————————————————————————————————————————
