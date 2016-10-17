@@ -62,16 +62,21 @@ end
 def delete_book(db, title)
   db.execute("DELETE FROM books WHERE name=?", [title])
 end
+
+#Add Bookmark:
+def new_bookmark(db, title, page)
+  book_id = db.execute("SELECT id FROM books WHERE name=?", [title])[0][0]
+  db.execute("INSERT INTO bookmarks (book_id, page) SELECT ?, ?
+    WHERE NOT EXISTS(SELECT id FROM bookmarks WHERE book_id=? AND page=?)", [book_id, page,
+    book_id, page])
+end
+
+#DELETE Bookmark:
+def delete_bookmark(db, bookmark_id)
+  db.execute("DELETE FROM bookmarks WHERE id=?", [bookmark_id])
+end
 #---------------------------------------------------------
 #TEST DRIVER CODE
-new_book(db, 'Jane Eyer', 563)
-new_book(db, 'Twilight', 789)
-new_book(db, 'Twilight3', 700)
-update_page(db, 'Jane Eyer', 563)
-delete_book(db, 'Twilight')
-display_books(db)
-
-
 
 
 
