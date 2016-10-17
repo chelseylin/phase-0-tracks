@@ -1,5 +1,6 @@
 #BOOK MANAGER PROGRAM & DATABASE
-
+#---------------------------------------------------------
+#PREPARATION
 #Require SQL:
 require 'sqlite3'
 
@@ -27,3 +28,36 @@ create_table_bookmark = <<-SQL
 SQL
 
 db.execute(create_table_bookmark)
+#---------------------------------------------------------
+#METHODS
+#Add New Book:
+def new_book(db, title, pages)
+  db.execute("INSERT INTO books (name, total_pages, current_page) SELECT ?, ?, 0
+    WHERE NOT EXISTS(SELECT id FROM books WHERE name=?)", [title, pages, title])
+end
+
+#Update Current Page:
+def update_page(db, title, current_page)
+  db.execute("UPDATE books SET current_page=? WHERE name=?", [current_page, title])
+end
+
+#Display All Books:
+def display_books(db)
+  books = db.execute("SELECT * FROM books")
+  p books
+end
+#---------------------------------------------------------
+#TEST DRIVER CODE
+new_book(db, 'Jane Eyer', 563)
+display_books(db)
+update_page(db, 'Jane Eyer', 200)
+display_books(db)
+
+
+
+
+
+
+
+
+
